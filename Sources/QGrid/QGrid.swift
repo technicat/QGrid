@@ -127,7 +127,7 @@ public struct QGrid<Data, Content>: View
       ForEach((0..<(isLastRow ? data.count % cols : cols))
       .map { QGridIndex(id: $0) }) { column in
         self.content(self.data[index + column.id])
-        .frame(width: self.contentWidthFor(geometry))
+        .frame(width: abs(self.contentWidthFor(geometry)))
       }
       if isLastRow { Spacer() }
     }
